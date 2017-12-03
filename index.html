@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+
+<body>
+<div>
+	<button onclick="run();">Helo</button>
+        <iframe id="1" width="100%" height="100%"></iframe>
+        <h1>Single applet + API</h1>
+        <p>This is an example of an HTML file containing a GeoGebra applet with buttons triggering the GeoGebra Javascript API.</p>
+
+        <script type="text/javascript">
+                
+        	function run() {
+                        //console.log(document.getElementById('2').contentWindow.document.body.innerHTML);
+                        var xhttp = new XMLHttpRequest();
+                        xhttp.onreadystatechange = function() {
+                            if (this.readyState == 4 && this.status == 200) {
+                               document.getElementById('1').contentWindow.document.write(xhttp.responseText);
+                            }
+                        };
+                        xhttp.open("GET", "https://cors-anywhere.herokuapp.com/http://user.gaia-wind.com/mobile_gaia/308045624217", true);
+                        xhttp.send();        	       
+        	}
+        </script>
+</div>
+</body>
+</html>
+
+
+
+
